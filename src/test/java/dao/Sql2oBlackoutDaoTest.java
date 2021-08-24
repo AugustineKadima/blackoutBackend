@@ -1,10 +1,8 @@
 
 package dao;
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import modules.Blackout;
+import org.junit.jupiter.api.*;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
@@ -33,10 +31,18 @@ class Sql2oBlackoutDaoTest {
 
     @Test
     void add() {
+        Blackout blackout = new Blackout(true);
+        blackoutDao.add(blackout);
+        blackoutDao.getAll();
+        Assertions.assertEquals(blackoutDao.getAll().get(0).isLights(), true);
     }
 
     @Test
     void findById() {
+        Blackout blackout = new Blackout(true);
+        blackoutDao.add(blackout);
+        blackoutDao.getAll();
+        Assertions.assertEquals(blackoutDao.getAll().get(0).getId(), 1);
     }
 
     @Test
