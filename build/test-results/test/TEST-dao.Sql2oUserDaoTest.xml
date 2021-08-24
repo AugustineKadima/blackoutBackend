@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="dao.Sql2oUserDaoTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2021-08-24T09:30:13" hostname="sirkadima-HP-Compaq-6200-Pro-SFF-PC" time="0.746">
+<testsuite name="dao.Sql2oUserDaoTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2021-08-24T10:30:48" hostname="sirkadima-HP-Compaq-6200-Pro-SFF-PC" time="1.23">
   <properties/>
-  <testcase name="getAll()" classname="dao.Sql2oUserDaoTest" time="0.188"/>
-  <testcase name="findById()" classname="dao.Sql2oUserDaoTest" time="0.16"/>
-  <testcase name="add()" classname="dao.Sql2oUserDaoTest" time="0.106"/>
-  <testcase name="clearAll()" classname="dao.Sql2oUserDaoTest" time="0.13"/>
-  <testcase name="deleteById()" classname="dao.Sql2oUserDaoTest" time="0.161"/>
+  <testcase name="getAll()" classname="dao.Sql2oUserDaoTest" time="0.266"/>
+  <testcase name="findById()" classname="dao.Sql2oUserDaoTest" time="0.348"/>
+  <testcase name="add()" classname="dao.Sql2oUserDaoTest" time="0.151"/>
+  <testcase name="clearAll()" classname="dao.Sql2oUserDaoTest" time="0.245"/>
+  <testcase name="deleteById()" classname="dao.Sql2oUserDaoTest" time="0.208"/>
   <system-out><![CDATA[Clearing database
 org.sql2o.Sql2oException: Error in executeUpdate, ERROR: syntax error at or near "RETURNING"
   Position: 44

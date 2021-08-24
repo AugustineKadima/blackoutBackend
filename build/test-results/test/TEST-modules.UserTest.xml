@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="modules.UserTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-08-24T09:30:14" hostname="sirkadima-HP-Compaq-6200-Pro-SFF-PC" time="0.001">
+<testsuite name="modules.UserTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-08-24T10:30:50" hostname="sirkadima-HP-Compaq-6200-Pro-SFF-PC" time="0.001">
   <properties/>
   <testcase name="instanceSuccessfullyCreated()" classname="modules.UserTest" time="0.0"/>
   <testcase name="variablesCanBeAssigned()" classname="modules.UserTest" time="0.0"/>

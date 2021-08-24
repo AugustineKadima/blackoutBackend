@@ -1,0 +1,8 @@
+modules/BlackoutTest.java
+ modules.BlackoutTest
+dao/Sql2oBlackoutDaoTest.java
+ dao.Sql2oBlackoutDaoTest
+dao/Sql2oUserDaoTest.java
+ dao.Sql2oUserDaoTest
+modules/UserTest.java
+ modules.UserTest
