@@ -1,10 +1,8 @@
 package dao;
 
 
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import modules.Blackout;
+import org.junit.jupiter.api.*;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import modules.User;
@@ -36,22 +34,44 @@ class Sql2oUserDaoTest {
     }
     @Test
     void add() {
-
+        User user = new User("Victoria", "Okumu", "victoriaokumu@gmail.com", "Westlands", "123");
+        userDao.add(user);
+        Assertions.assertEquals(userDao.getAll().get(0).getFname(), "Victoria");
     }
 
     @Test
     void getAll() {
+        User user = new User("Victoria", "Okumu", "victoriaokumu@gmail.com", "Westlands", "123");
+        userDao.add(user);
+        userDao.getAll();
+        assertEquals(user, userDao.findById(user.getId()));
     }
 
     @Test
     void findById() {
+        userDao.clearAll();
+        User user = new User("Victoria", "Okumu", "victoriaokumu@gmail.com", "Westlands", "123");
+        User user1 = new User("Augustine", "Samuel", "augustinesamuel@gmail.com", "Rhunda", "345");
+        userDao.add(user);
+        userDao.add(user1);
+        assertEquals(userDao.getAll().size(), 2);
     }
 
     @Test
     void deleteById() {
+        User user = new User("Victoria", "Okumu", "victoriaokumu@gmail.com", "Westlands", "123");
+        User user1 = new User("Augustine", "Samuel", "augustinesamuel@gmail.com", "Rhunda", "345");
+        userDao.add(user);
+        userDao.add(user1);
+        userDao.deleteById(user.getId());
+        assertEquals(1,  userDao.getAll().size());
     }
 
     @Test
     void clearAll() {
+        User user = new User("Victoria", "Okumu", "victoriaokumu@gmail.com", "Westlands", "123");
+        userDao.add(user);
+        userDao.deleteById(user.getId());
+        assertEquals(0,  userDao.getAll().size());
     }
 }

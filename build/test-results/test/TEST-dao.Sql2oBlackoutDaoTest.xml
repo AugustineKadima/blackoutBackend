@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="dao.Sql2oBlackoutDaoTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2021-08-24T09:12:55" hostname="sirkadima-HP-Compaq-6200-Pro-SFF-PC" time="1.173">
+<testsuite name="dao.Sql2oBlackoutDaoTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2021-08-24T09:30:11" hostname="sirkadima-HP-Compaq-6200-Pro-SFF-PC" time="1.305">
   <properties/>
-  <testcase name="getAll()" classname="dao.Sql2oBlackoutDaoTest" time="0.603"/>
-  <testcase name="findById()" classname="dao.Sql2oBlackoutDaoTest" time="0.154"/>
-  <testcase name="add()" classname="dao.Sql2oBlackoutDaoTest" time="0.121"/>
-  <testcase name="clearAll()" classname="dao.Sql2oBlackoutDaoTest" time="0.131"/>
-  <testcase name="deleteById()" classname="dao.Sql2oBlackoutDaoTest" time="0.16"/>
+  <testcase name="getAll()" classname="dao.Sql2oBlackoutDaoTest" time="0.598"/>
+  <testcase name="findById()" classname="dao.Sql2oBlackoutDaoTest" time="0.143"/>
+  <testcase name="add()" classname="dao.Sql2oBlackoutDaoTest" time="0.178"/>
+  <testcase name="clearAll()" classname="dao.Sql2oBlackoutDaoTest" time="0.197"/>
+  <testcase name="deleteById()" classname="dao.Sql2oBlackoutDaoTest" time="0.186"/>
   <system-out><![CDATA[org.sql2o.Sql2oException: Error in executeUpdate, ERROR: syntax error at or near "RETURNING"
   Position: 47
 Clearing database
