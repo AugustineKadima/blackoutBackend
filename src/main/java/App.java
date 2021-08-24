@@ -1,6 +1,7 @@
 import com.google.gson.Gson;
 import dao.Sql2oBlackoutDao;
 import dao.Sql2oUserDao;
+import modules.Blackout;
 import modules.User;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
@@ -45,9 +46,35 @@ public class App {
             int user_id = Integer.parseInt(req.params("user_id"));
             User userToDelete = userDao.findById(user_id);
             userDao.deleteById(user_id);
-
             return gson.toJson(userToDelete);
+        });
 
+        //CREATE nEW(aDD DEPARTMENT)
+        post("/blackouts/new", "application/json", (req, res) -> {
+            Blackout blackout = gson.fromJson(req.body(), Blackout.class);
+            blackoutDao.add(blackout);
+            res.status(201);
+            return gson.toJson(blackout);
+        });
+
+        //GET ALL
+        get("/blackouts", "application/json", (req, res) -> {
+            return gson.toJson(blackoutDao.getAll());
+        });
+
+        //GET BLACKOUT BY ID
+        get("/blackouts/:id", "application/json", (req, res) -> {
+            int blackoutId = Integer.parseInt(req.params("id"));
+            Blackout blackoutToFind = blackoutDao.findById(blackoutId);
+            return gson.toJson(blackoutToFind);
+        });
+
+        //DELETE BY ID
+        delete("blackouts/:blackout_id", (req, res) -> {
+            int blackout_id = Integer.parseInt(req.params("blackout_id"));
+            Blackout blackoutToDelete = blackoutDao.findById(blackout_id);
+            blackoutDao.deleteById(blackout_id);
+            return gson.toJson(blackoutToDelete);
         });
 
 
