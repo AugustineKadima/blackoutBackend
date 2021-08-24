@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="modules.BlackoutTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-08-24T10:30:50" hostname="sirkadima-HP-Compaq-6200-Pro-SFF-PC" time="0.002">
+<testsuite name="modules.BlackoutTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-08-24T16:21:49" hostname="sirkadima-HP-Compaq-6200-Pro-SFF-PC" time="0.005">
   <properties/>
-  <testcase name="idAndLightsCanBeAssignedValues()" classname="modules.BlackoutTest" time="0.0"/>
+  <testcase name="idAndLightsCanBeAssignedValues()" classname="modules.BlackoutTest" time="0.001"/>
   <testcase name="BlackoutClassExists()" classname="modules.BlackoutTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

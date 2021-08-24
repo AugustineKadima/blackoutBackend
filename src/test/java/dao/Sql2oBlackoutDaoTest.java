@@ -2,20 +2,25 @@
 package dao;
 
 import modules.Blackout;
+import modules.User;
 import org.junit.jupiter.api.*;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
+
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class Sql2oBlackoutDaoTest {
     private static Connection conn;
     private static Sql2oBlackoutDao blackoutDao;
+    private static Sql2oUserDao userDao;
 
     @BeforeEach
     void setUp() {
         Sql2o sql2o = new Sql2o("jdbc:postgresql://localhost:5432/lights_test",  "sirkadima", "kadima123");
         blackoutDao = new Sql2oBlackoutDao(sql2o);
+        userDao = new Sql2oUserDao(sql2o);
         conn = sql2o.open();
     }
     @AfterEach
@@ -46,7 +51,7 @@ class Sql2oBlackoutDaoTest {
 
     @Test
     void getAll() {
-        blackoutDao.clearAll();
+
         Blackout blackout1 = new Blackout(true);
         Blackout blackout2 = new Blackout(true);
         Blackout blackout3 = new Blackout(true);
@@ -73,4 +78,22 @@ class Sql2oBlackoutDaoTest {
         blackoutDao.deleteById(blackout.getId());
         Assertions.assertEquals(0,  blackoutDao.getAll().size());
     }
+
+    @Test
+    public void addUserToBlackout(){
+        Blackout blackout = new Blackout(false);
+        blackoutDao.add(blackout);
+
+        User user = new User("John", "Doe", "johndoe@gmail.com", "jon", "jnjnjb");
+        User user1 = new User("Sam", "Doe", "samdoe@gmail.com", "Ron", "hghgg");
+        userDao.add(user);
+        userDao.add(user1);
+
+        blackoutDao.addBlackoutUser(user1, blackout);
+        blackoutDao.addBlackoutUser(user, blackout);
+        User[] users= {user1, user};
+        assertEquals(Arrays.asList(users), blackoutDao.getBlackoutUser(blackout.getId()));
+        blackoutDao.clearAll();
+        userDao.clearAll();
     }
+}

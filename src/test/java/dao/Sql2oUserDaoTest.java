@@ -13,12 +13,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class Sql2oUserDaoTest {
     private static Connection conn;
     private static Sql2oUserDao userDao;
+    private static Sql2oBlackoutDao blackoutDao;
 
     @BeforeEach
     void setUp() throws Exception {
 
         Sql2o sql2o = new Sql2o("jdbc:postgresql://localhost:5432/lights_test",  "sirkadima", "kadima123");
         userDao = new Sql2oUserDao(sql2o);
+        blackoutDao = new Sql2oBlackoutDao(sql2o);
         conn = sql2o.open();
     }
 
@@ -73,5 +75,23 @@ class Sql2oUserDaoTest {
         userDao.add(user);
         userDao.deleteById(user.getId());
         assertEquals(0,  userDao.getAll().size());
+    }
+
+    @Test
+    public void addUserToBlackout(){
+        User user = new User("Victoria", "Okumu", "victoriaokumu@gmail.com", "Westlands", "123");
+        userDao.add(user);
+
+        Blackout blackout = new Blackout(true);
+        Blackout blackout1 = new Blackout(true);
+        blackoutDao.add(blackout);
+        blackoutDao.add(blackout1);
+
+        userDao.addUserBlackout(user, blackout);
+        blackoutDao.addBlackoutUser(user, blackout1);
+        Blackout[] blackouts= {blackout, blackout1};
+        assertEquals(Arrays.asList(blackouts), userDao.getUserBlackouts(user.getId()));
+        blackoutDao.clearAll();
+        userDao.clearAll();
     }
 }
