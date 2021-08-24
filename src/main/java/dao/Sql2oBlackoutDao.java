@@ -60,7 +60,7 @@ public class Sql2oBlackoutDao implements IBlackout{
 
     @Override
     public void clearAll() {
-        String sql = "DELETE from blacouts";
+        String sql = "DELETE from blackouts";
         String resetSql = "ALTER SEQUENCE blackout_id_seq RESTART WITH 1;";
         try (Connection con = sql2o.open()) {
             con.createQuery(sql).executeUpdate();

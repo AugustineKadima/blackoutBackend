@@ -33,7 +33,6 @@ class Sql2oBlackoutDaoTest {
     void add() {
         Blackout blackout = new Blackout(true);
         blackoutDao.add(blackout);
-        blackoutDao.getAll();
         Assertions.assertEquals(blackoutDao.getAll().get(0).isLights(), true);
     }
 
@@ -42,18 +41,36 @@ class Sql2oBlackoutDaoTest {
         Blackout blackout = new Blackout(true);
         blackoutDao.add(blackout);
         blackoutDao.getAll();
-        Assertions.assertEquals(blackoutDao.getAll().get(0).getId(), 1);
+        Assertions.assertEquals(blackout, blackoutDao.findById(blackout.getId()));
     }
 
     @Test
     void getAll() {
+        blackoutDao.clearAll();
+        Blackout blackout1 = new Blackout(true);
+        Blackout blackout2 = new Blackout(true);
+        Blackout blackout3 = new Blackout(true);
+        blackoutDao.add(blackout1);
+        blackoutDao.add(blackout2);
+        blackoutDao.add(blackout3);
+        Assertions.assertEquals(blackoutDao.getAll().size(), 3);
     }
 
     @Test
     void deleteById() {
+        Blackout blackout = new Blackout(true);
+        Blackout blackout1 = new Blackout(true);
+        blackoutDao.add(blackout);
+        blackoutDao.add(blackout1);
+        blackoutDao.deleteById(blackout.getId());
+        Assertions.assertEquals(1,  blackoutDao.getAll().size());
     }
 
     @Test
     void clearAll() {
+        Blackout blackout = new Blackout(true);
+        blackoutDao.add(blackout);
+        blackoutDao.deleteById(blackout.getId());
+        Assertions.assertEquals(0,  blackoutDao.getAll().size());
     }
-}
+    }
