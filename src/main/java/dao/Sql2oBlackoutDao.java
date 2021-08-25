@@ -56,7 +56,7 @@ public class Sql2oBlackoutDao implements IBlackout{
     public List<User> getBlackoutUser(int blackout_id) {
         ArrayList<User> users = new ArrayList<>();
 
-        String joinQuery = "SELECT user_id FROM blackouts_users WHERE blackout_id = :blackout_id;";
+        String joinQuery = "SELECT user_id FROM blackouts_users WHERE blackout_id = :blackout_id";
 
         try (Connection con = sql2o.open()) {
             List<Integer> allUserIds = con.createQuery(joinQuery)
@@ -72,8 +72,11 @@ public class Sql2oBlackoutDao implements IBlackout{
         } catch (Sql2oException ex){
             System.out.println(ex);
         }
+        System.out.println("Our users: "+users);
         return users;
     }
+
+//
 
     @Override
     public List<Blackout> getAll() {

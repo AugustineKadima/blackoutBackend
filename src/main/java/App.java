@@ -77,6 +77,51 @@ public class App {
             return gson.toJson(blackoutToDelete);
         });
 
+        //USERS_BLACKOUTS
+        post("/blackouts/:blackout_id/user/:user_id/new", "application/json", (req, res) -> {
+            int blackout_id = Integer.parseInt(req.params("blackout_id"));
+            int user_id = Integer.parseInt(req.params("user_id"));
+            Blackout blackout = blackoutDao.findById(blackout_id);
+            User user = userDao.findById(user_id);
+
+            if (blackout!= null && user != null){
+                userDao.addUserBlackout(user, blackout);
+                res.status(201);
+                return gson.toJson(String.format("New blackout alert has been raised by %s in  %s",user.getFname(), user.getLocation()));
+            }
+            else {
+                throw new Exception();
+            }
+        });
+
+        //ALL USERS PER BLACKOUT
+        get("/blackouts/:blackout_id/users", "application/json", (req, res) -> {
+            int blackout_id = Integer.parseInt(req.params("blackout_id"));
+            Blackout blackoutToFind = blackoutDao.findById(blackout_id);
+            if (blackoutToFind == null) {
+                throw new Exception();
+            }
+            else if (blackoutDao.getBlackoutUser(blackout_id).size() == 0) {
+                return "{\"message\":\"There are no employees in this department.\"}";
+            }
+            else {
+                return gson.toJson(blackoutDao.getBlackoutUser(blackout_id));
+            }
+        });
+
+        get("/user/:user_id/blackouts", "application/json", (req, res) -> {
+            int user_id = Integer.parseInt(req.params("user_id"));
+            User userToFind = userDao.findById(user_id);
+            if (userToFind == null){
+                return  "{\"message\":\"Empty\"}";
+            }
+            else if (userDao.getUserBlackouts(user_id).size() == 0){
+                return "{\"message\":\"This employee is currently not associated with any department\"}";
+            }
+            else {
+                return gson.toJson(userDao.getUserBlackouts(user_id));
+            }
+        });
 
     }
 }
