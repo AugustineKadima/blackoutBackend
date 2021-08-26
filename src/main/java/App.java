@@ -6,6 +6,8 @@ import modules.User;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
+import java.util.List;
+
 import static spark.Spark.*;
 
 public class App {
@@ -20,12 +22,13 @@ public class App {
 
         port(getHerokuAssignedPort());
 
-                Sql2o sql2o = new Sql2o("jdbc:postgresql://ec2-34-194-14-176.compute-1.amazonaws.com:5432/d39ga5q2dtcont",  "kpnvwebpcaixum", "d6093bb142e7fb0b92d469148f9ffcb3d93235a373ff83dd5c2e6a826583d932");
+//                Sql2o sql2o = new Sql2o("jdbc:postgresql://ec2-18-235-4-83.compute-1.amazonaws.com:5432/d8spnuo1k23hg0",
+//                        "lpjsgfsgabkeqy", "1e71807b185403536ef918f5b1913e5abf37aa8755935eeedcfb5771d2a9cdff");
 
         Connection conn;
         Sql2oBlackoutDao blackoutDao;
         Sql2oUserDao userDao;
-//        Sql2o sql2o = new Sql2o("jdbc:postgresql://localhost:5432/lights",  "sirkadima", "kadima123");
+        Sql2o sql2o = new Sql2o("jdbc:postgresql://localhost:5432/lights",  "sirkadima", "kadima123");
 
         userDao = new Sql2oUserDao(sql2o);
         blackoutDao = new Sql2oBlackoutDao(sql2o);
@@ -98,6 +101,7 @@ public class App {
 
             if (blackout!= null && user != null){
                 userDao.addUserBlackout(user, blackout);
+                blackoutDao.addBlackoutUser(user, blackout);
                 res.status(201);
                 return gson.toJson(String.format("New blackout alert has been raised by %s in  %s",user.getFname(), user.getLocation()));
             }
@@ -113,12 +117,16 @@ public class App {
             if (blackoutToFind == null) {
                 throw new Exception();
             }
-            else if (blackoutDao.getBlackoutUser(blackout_id).size() == 0) {
-                return "{\"message\":\"There are no employees in this department.\"}";
-            }
-            else {
-                return gson.toJson(blackoutDao.getBlackoutUser(blackout_id));
-            }
+//            else if (blackoutDao.getBlackoutUser(blackout_id).size() == 0) {
+//                return "{\"message\":\"There are no employees in this department.\"}";
+//            }
+//
+//            else {
+//                return gson.toJson(blackoutDao.getBlackoutUser(blackout_id));
+//            }
+
+            List<User> allUsers = userDao.getAllUsersByBlackout(blackout_id);
+            return gson.toJson(allUsers);
         });
 
         get("/user/:user_id/blackouts", "application/json", (req, res) -> {

@@ -18,7 +18,7 @@ public class Sql2oUserDao  implements IUser{
 
     @Override
     public void add(User user) {
-        String sql = "INSERT INTO users (fname,lname,email,location,password) VALUES (:fname, :lname, :email,:location,:password)";
+        String sql = "INSERT INTO users (blackout_id, fname,lname,email,location,password) VALUES (:blackout_id,:fname, :lname, :email,:location,:password)";
         try(Connection con = sql2o.open()){
             int id = (int) con.createQuery(sql, true)
                     .bind(user)
@@ -82,6 +82,15 @@ public class Sql2oUserDao  implements IUser{
             System.out.println(ex);
         }
         return blackouts;
+    }
+
+    @Override
+    public List<User> getAllUsersByBlackout(int blackout_id) {
+        try (Connection conn = sql2o.open()){
+            return conn.createQuery("SELECT * FROM users WHERE blackout_id = :blackout_id")
+                    .addParameter("blackout_id",blackout_id)
+                    .executeAndFetch(User.class);
+        }
     }
 
     @Override

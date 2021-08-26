@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="dao.Sql2oUserDaoTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-08-25T10:24:47" hostname="sirkadima-HP-Compaq-6200-Pro-SFF-PC" time="1.244">
+<testsuite name="dao.Sql2oUserDaoTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-08-26T13:34:25" hostname="sirkadima-HP-Compaq-6200-Pro-SFF-PC" time="1.179">
   <properties/>
-  <testcase name="getAll()" classname="dao.Sql2oUserDaoTest" time="0.281"/>
-  <testcase name="findById()" classname="dao.Sql2oUserDaoTest" time="0.232"/>
-  <testcase name="add()" classname="dao.Sql2oUserDaoTest" time="0.135"/>
-  <testcase name="clearAll()" classname="dao.Sql2oUserDaoTest" time="0.141"/>
-  <testcase name="deleteById()" classname="dao.Sql2oUserDaoTest" time="0.162"/>
+  <testcase name="getAll()" classname="dao.Sql2oUserDaoTest" time="0.169"/>
+  <testcase name="findById()" classname="dao.Sql2oUserDaoTest" time="0.205"/>
+  <testcase name="add()" classname="dao.Sql2oUserDaoTest" time="0.129"/>
+  <testcase name="clearAll()" classname="dao.Sql2oUserDaoTest" time="0.193"/>
+  <testcase name="deleteById()" classname="dao.Sql2oUserDaoTest" time="0.2"/>
   <testcase name="addUserToBlackout()" classname="dao.Sql2oUserDaoTest" time="0.275"/>
   <system-out><![CDATA[Clearing database
 org.sql2o.Sql2oException: Error in executeUpdate, ERROR: syntax error at or near "RETURNING"
@@ -39,7 +39,7 @@ org.postgresql.util.PSQLException: Cannot rollback when autoCommit is enabled.
 	at org.sql2o.Connection.rollback(Connection.java:132)
 	at org.sql2o.Connection.onException(Connection.java:76)
 	at org.sql2o.Query.executeUpdate(Query.java:658)
-	at dao.Sql2oUserDao.clearAll(Sql2oUserDao.java:105)
+	at dao.Sql2oUserDao.clearAll(Sql2oUserDao.java:114)
 	at dao.Sql2oUserDaoTest.tearDown(Sql2oUserDaoTest.java:30)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
@@ -143,7 +143,7 @@ org.postgresql.util.PSQLException: Cannot rollback when autoCommit is enabled.
 	at org.sql2o.Connection.rollback(Connection.java:132)
 	at org.sql2o.Connection.onException(Connection.java:76)
 	at org.sql2o.Query.executeUpdate(Query.java:658)
-	at dao.Sql2oUserDao.clearAll(Sql2oUserDao.java:105)
+	at dao.Sql2oUserDao.clearAll(Sql2oUserDao.java:114)
 	at dao.Sql2oUserDaoTest.findById(Sql2oUserDaoTest.java:54)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
@@ -241,7 +241,7 @@ org.postgresql.util.PSQLException: Cannot rollback when autoCommit is enabled.
 	at org.sql2o.Connection.rollback(Connection.java:132)
 	at org.sql2o.Connection.onException(Connection.java:76)
 	at org.sql2o.Query.executeUpdate(Query.java:658)
-	at dao.Sql2oUserDao.clearAll(Sql2oUserDao.java:105)
+	at dao.Sql2oUserDao.clearAll(Sql2oUserDao.java:114)
 	at dao.Sql2oUserDaoTest.tearDown(Sql2oUserDaoTest.java:30)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
@@ -345,7 +345,7 @@ org.postgresql.util.PSQLException: Cannot rollback when autoCommit is enabled.
 	at org.sql2o.Connection.rollback(Connection.java:132)
 	at org.sql2o.Connection.onException(Connection.java:76)
 	at org.sql2o.Query.executeUpdate(Query.java:658)
-	at dao.Sql2oUserDao.clearAll(Sql2oUserDao.java:105)
+	at dao.Sql2oUserDao.clearAll(Sql2oUserDao.java:114)
 	at dao.Sql2oUserDaoTest.tearDown(Sql2oUserDaoTest.java:30)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
@@ -449,7 +449,7 @@ org.postgresql.util.PSQLException: Cannot rollback when autoCommit is enabled.
 	at org.sql2o.Connection.rollback(Connection.java:132)
 	at org.sql2o.Connection.onException(Connection.java:76)
 	at org.sql2o.Query.executeUpdate(Query.java:658)
-	at dao.Sql2oUserDao.clearAll(Sql2oUserDao.java:105)
+	at dao.Sql2oUserDao.clearAll(Sql2oUserDao.java:114)
 	at dao.Sql2oUserDaoTest.tearDown(Sql2oUserDaoTest.java:30)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
@@ -553,7 +553,7 @@ org.postgresql.util.PSQLException: Cannot rollback when autoCommit is enabled.
 	at org.sql2o.Connection.rollback(Connection.java:132)
 	at org.sql2o.Connection.onException(Connection.java:76)
 	at org.sql2o.Query.executeUpdate(Query.java:658)
-	at dao.Sql2oUserDao.clearAll(Sql2oUserDao.java:105)
+	at dao.Sql2oUserDao.clearAll(Sql2oUserDao.java:114)
 	at dao.Sql2oUserDaoTest.tearDown(Sql2oUserDaoTest.java:30)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
@@ -755,7 +755,7 @@ org.postgresql.util.PSQLException: Cannot rollback when autoCommit is enabled.
 	at org.sql2o.Connection.rollback(Connection.java:132)
 	at org.sql2o.Connection.onException(Connection.java:76)
 	at org.sql2o.Query.executeUpdate(Query.java:658)
-	at dao.Sql2oUserDao.clearAll(Sql2oUserDao.java:105)
+	at dao.Sql2oUserDao.clearAll(Sql2oUserDao.java:114)
 	at dao.Sql2oUserDaoTest.addUserToBlackout(Sql2oUserDaoTest.java:95)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
@@ -853,7 +853,7 @@ org.postgresql.util.PSQLException: Cannot rollback when autoCommit is enabled.
 	at org.sql2o.Connection.rollback(Connection.java:132)
 	at org.sql2o.Connection.onException(Connection.java:76)
 	at org.sql2o.Query.executeUpdate(Query.java:658)
-	at dao.Sql2oUserDao.clearAll(Sql2oUserDao.java:105)
+	at dao.Sql2oUserDao.clearAll(Sql2oUserDao.java:114)
 	at dao.Sql2oUserDaoTest.tearDown(Sql2oUserDaoTest.java:30)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)

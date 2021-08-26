@@ -84,8 +84,8 @@ class Sql2oBlackoutDaoTest {
         Blackout blackout = new Blackout(false);
         blackoutDao.add(blackout);
 
-        User user = new User("John", "Doe", "johndoe@gmail.com", "jon", "jnjnjb");
-        User user1 = new User("Sam", "Doe", "samdoe@gmail.com", "Ron", "hghgg");
+        User user = new User(1,"John", "Doe", "johndoe@gmail.com", "jon", "jnjnjb");
+        User user1 = new User(1,"Sam", "Doe", "samdoe@gmail.com", "Ron", "hghgg");
         userDao.add(user);
         userDao.add(user1);
 

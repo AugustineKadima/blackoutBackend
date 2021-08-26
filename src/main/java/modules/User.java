@@ -11,14 +11,16 @@ public class User {
     private String email;
     private String location;
     private String password;
+    private int blackout_id;
 
-    public User(String fname, String lname, String email, String location, String password) {
+    public User(int blackout_id, String fname, String lname, String email, String location, String password) {
         this.fname = fname;
         this.lname = lname;
         this.email = email;
         this.location = location;
         this.password = password;
         this.id = id;
+        this.blackout_id = blackout_id;
     }
 
     public int getId() {
@@ -27,6 +29,14 @@ public class User {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getBlackout_id() {
+        return blackout_id;
+    }
+
+    public void setBlackout_id(int blackout_id) {
+        this.blackout_id = blackout_id;
     }
 
     public String getFname() {
@@ -74,11 +84,11 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return id == user.id && fname.equals(user.fname) && lname.equals(user.lname) && email.equals(user.email) && location.equals(user.location) && password.equals(user.password);
+        return id == user.id && blackout_id == user.blackout_id && fname.equals(user.fname) && lname.equals(user.lname) && email.equals(user.email) && location.equals(user.location) && password.equals(user.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, fname, lname, email, location, password);
+        return Objects.hash(id, fname, lname, email, location, password, blackout_id);
     }
 }

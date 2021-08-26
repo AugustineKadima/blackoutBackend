@@ -8,6 +8,7 @@ public class UserTest {
     @Test
     public void instanceSuccessfullyCreated(){
         User user = new User(
+                1,
                 "Mark",
                 "Muigai",
                 "markmuigai@gmail.com",
@@ -20,6 +21,7 @@ public class UserTest {
     @Test
     public void variablesCanBeAssigned(){
         User user = new User(
+                1,
                 "Mark",
                 "Muigai",
                 "markmuigai@gmail.com",

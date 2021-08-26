@@ -17,7 +17,7 @@ public interface IUser {
     List<User> getAll();
     User findById(int id);
     List<Blackout> getUserBlackouts(int user_id);
-
+    List<User> getAllUsersByBlackout(int blackout_id);
     //delete
     void deleteById(int id);
     void clearAll();

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="dao.Sql2oBlackoutDaoTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-08-25T10:24:44" hostname="sirkadima-HP-Compaq-6200-Pro-SFF-PC" time="3.273">
+<testsuite name="dao.Sql2oBlackoutDaoTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-08-26T13:34:23" hostname="sirkadima-HP-Compaq-6200-Pro-SFF-PC" time="1.843">
   <properties/>
-  <testcase name="getAll()" classname="dao.Sql2oBlackoutDaoTest" time="1.219"/>
-  <testcase name="findById()" classname="dao.Sql2oBlackoutDaoTest" time="0.484"/>
-  <testcase name="add()" classname="dao.Sql2oBlackoutDaoTest" time="0.354"/>
-  <testcase name="clearAll()" classname="dao.Sql2oBlackoutDaoTest" time="0.219"/>
-  <testcase name="deleteById()" classname="dao.Sql2oBlackoutDaoTest" time="0.305"/>
-  <testcase name="addUserToBlackout()" classname="dao.Sql2oBlackoutDaoTest" time="0.681"/>
+  <testcase name="getAll()" classname="dao.Sql2oBlackoutDaoTest" time="0.559"/>
+  <testcase name="findById()" classname="dao.Sql2oBlackoutDaoTest" time="0.158"/>
+  <testcase name="add()" classname="dao.Sql2oBlackoutDaoTest" time="0.15"/>
+  <testcase name="clearAll()" classname="dao.Sql2oBlackoutDaoTest" time="0.144"/>
+  <testcase name="deleteById()" classname="dao.Sql2oBlackoutDaoTest" time="0.365"/>
+  <testcase name="addUserToBlackout()" classname="dao.Sql2oBlackoutDaoTest" time="0.462"/>
   <system-out><![CDATA[Clearing database
 org.sql2o.Sql2oException: Error in executeUpdate, ERROR: syntax error at or near "RETURNING"
   Position: 47
@@ -22,7 +22,7 @@ org.sql2o.Sql2oException: Error in executeUpdate, ERROR: syntax error at or near
 Clearing database
 org.sql2o.Sql2oException: Error in executeUpdate, ERROR: syntax error at or near "RETURNING"
   Position: 47
-Our users: [modules.User@823b7627, modules.User@3e8a9207]
+Our users: [modules.User@23c3519b, modules.User@f157b1bb]
 org.sql2o.Sql2oException: Error in executeUpdate, ERROR: syntax error at or near "RETURNING"
   Position: 47
 org.sql2o.Sql2oException: Error in executeUpdate, ERROR: syntax error at or near "RETURNING"
@@ -656,7 +656,7 @@ org.postgresql.util.PSQLException: Cannot rollback when autoCommit is enabled.
 	at org.sql2o.Connection.rollback(Connection.java:132)
 	at org.sql2o.Connection.onException(Connection.java:76)
 	at org.sql2o.Query.executeUpdate(Query.java:658)
-	at dao.Sql2oUserDao.clearAll(Sql2oUserDao.java:105)
+	at dao.Sql2oUserDao.clearAll(Sql2oUserDao.java:114)
 	at dao.Sql2oBlackoutDaoTest.addUserToBlackout(Sql2oBlackoutDaoTest.java:97)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:78)
