@@ -9,11 +9,23 @@ import org.sql2o.Sql2o;
 import static spark.Spark.*;
 
 public class App {
+    static int getHerokuAssignedPort() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        if (processBuilder.environment().get("PORT") != null) {
+            return Integer.parseInt(processBuilder.environment().get("PORT"));
+        }
+        return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
+    }
     public static void main(String[] args) {
+
+        port(getHerokuAssignedPort());
+
+                Sql2o sql2o = new Sql2o("jdbc:postgresql://ec2-34-194-14-176.compute-1.amazonaws.com:5432/d39ga5q2dtcont",  "kpnvwebpcaixum", "d6093bb142e7fb0b92d469148f9ffcb3d93235a373ff83dd5c2e6a826583d932");
+
         Connection conn;
         Sql2oBlackoutDao blackoutDao;
         Sql2oUserDao userDao;
-        Sql2o sql2o = new Sql2o("jdbc:postgresql://localhost:5432/lights",  "sirkadima", "kadima123");
+//        Sql2o sql2o = new Sql2o("jdbc:postgresql://localhost:5432/lights",  "sirkadima", "kadima123");
 
         userDao = new Sql2oUserDao(sql2o);
         blackoutDao = new Sql2oBlackoutDao(sql2o);

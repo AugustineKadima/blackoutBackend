@@ -14,7 +14,7 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
     implementation "com.sparkjava:spark-core:2.9.3"
     implementation "com.sparkjava:spark-template-handlebars:2.7.1"
-    implementation 'org.slf4j:slf4j-simple:1.7.32'
+    implementation 'org.slf4j:slf4j-simple:1.7.21'
     implementation 'org.sql2o:sql2o:1.6.0'
     implementation group: 'com.h2database', name: 'h2', version: '1.4.200'
     implementation 'org.postgresql:postgresql:42.2.23.jre7'
