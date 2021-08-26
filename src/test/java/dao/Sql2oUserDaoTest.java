@@ -94,4 +94,14 @@ class Sql2oUserDaoTest {
         blackoutDao.clearAll();
         userDao.clearAll();
     }
+
+    @Test
+    public void getAllUsersByBlackout(){
+        User user = new User(1,"Victoria", "Okumu", "victoriaokumu@gmail.com", "Westlands", "123");
+        User user1 = new User(1,"Augustine", "Samuel", "augustinesamuel@gmail.com", "Rhunda", "345");
+
+        userDao.add(user);
+        userDao.add(user1);
+        Assertions.assertEquals(2, userDao.getAllUsersByBlackout(1).size());
+    }
 }
